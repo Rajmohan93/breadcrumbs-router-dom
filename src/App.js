@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+import "./App.css";
+
+import Password from "./components/Password";
+import Home from "./components/navigation/Home";
+import Dashboard from "./components/navigation/Dashboard";
+import Teachers from "./components/navigation/Teachers";
+import CreateTeacher from "./components/navigation/CreateTeacher";
+import NoMatch from "./components/navigation/NoMatch";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Password />
+      <br/>
+
+      <Router>
+        <nav>
+          <Link to="home">Home</Link>
+          <Link to="dashboard">Dashboard</Link>
+          <Link to="teachers">Teachers</Link>
+        </nav>
+        <br/>
+
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="home" element={<Home />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="teachers" element={<Teachers />}>
+            <Route path="createteacher" element={<CreateTeacher />} />
+            <Route path="*" element={<NoMatch />} />
+          </Route>
+          <Route path="*" element={<NoMatch />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
