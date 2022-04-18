@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Button, Breadcrumbs, Link } from "@mui/material";
-import { Link as Navigation, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
@@ -20,11 +20,11 @@ function Teachers() {
                 This is the teachers page.
             </Typography>
             
-            <Navigation to="createteacher">
+            <Link href="/teachers/create">
                 <Button variant="contained" color="primary" className="textDec">
-                    Create Teacher
+                    Create
                 </Button>
-            </Navigation>
+            </Link>
             <Outlet />
         </Box>
     )

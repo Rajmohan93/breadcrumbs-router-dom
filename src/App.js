@@ -28,10 +28,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="teachers" element={<Teachers />}>
-            <Route path="createteacher" element={<CreateTeacher />} />
-            <Route path="*" element={<NoMatch />} />
-          </Route>
+          <Route path="teachers" element={<Teachers />}/>
+          <Route path="/teachers/create" element={<CreateTeacher />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       </Router>

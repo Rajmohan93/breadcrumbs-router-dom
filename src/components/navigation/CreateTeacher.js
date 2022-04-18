@@ -14,7 +14,7 @@ function CreateTeacher() {
                     Teachers
                 </Link>
                 <Typography color="text.primary">
-                    Teachers
+                    Create
                 </Typography>
             </Breadcrumbs>
 
